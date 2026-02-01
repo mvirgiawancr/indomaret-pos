@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Indomaret POS Application 🏪
 
-## Getting Started
+Sistem Informasi Point of Sale (POS) dan Manajemen Pengiriman berbasis Web untuk Indomaret. Aplikasi ini dirancang untuk memudahkan pengelolaan pesanan, stok produk, dan pelacakan pengiriman kurir secara real-time.
 
-First, run the development server:
+![Indomaret POS Banner](https://upload.wikimedia.org/wikipedia/commons/9/9d/Logo_Indomaret.png)
+
+## 🚀 Fitur Utama
+
+### 🛒 Pengguna (Pelanggan)
+*   **Katalog Produk**: Menjelajahi produk dengan kategori dan pencarian.
+*   **Keranjang Belanja**: Menambahkan produk ke keranjang dan checkout.
+*   **Manajemen Pesanan**: Melacak status pesanan (Menunggu, Diproses, Dikirim, Selesai).
+*   **Riwayat Transaksi**: Melihat history belanja lengkap.
+
+### 👨‍💼 Admin (Manajemen)
+*   **Dashboard Statistik**: Ringkasan penjualan, total pesanan, dan produk terlaris.
+*   **Manajemen Produk**: Tambah, edit, hapus, dan atur stok produk.
+*   **Manajemen Pesanan**: Verifikasi pembayaran dan memproses pesanan masuk.
+*   **Manajemen Kurir**: Menugaskan pengiriman ke kurir yang tersedia.
+
+### 🛵 Kurir (Pengiriman)
+*   **Dashboard Pengiriman**: Melihat daftar tugas pengiriman "Hari Ini".
+*   **Detail Pengiriman**: Informasi lengkap alamat pelanggan dan barang yang harus diantar.
+*   **Update Status**: Update status pengiriman (Diambil, Dalam Perjalanan, Terkirim) dengan sekali klik.
+
+---
+
+## 🛠️ Teknologi yang Digunakan
+
+Build with modern web technologies for performance and scalability:
+
+*   **Framework**: [Next.js 16](https://nextjs.org/) (App Router)
+*   **Database**: [PostgreSQL](https://www.postgresql.org/) (via [Neon](https://neon.tech/) / Supabase)
+*   **ORM**: [Drizzle ORM](https://orm.drizzle.team/)
+*   **Authentication**: [Better Auth](https://www.better-auth.com/)
+*   **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+*   **Icons**: [Lucide React](https://lucide.dev/)
+*   **Deployment**: Vercel
+
+---
+
+## 📂 Project Structure
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+indomaret-pos/
+├── src/
+│   ├── app/                    # App Router (Pages & Layouts)
+│   │   ├── (auth)/             # Authentication Routes (Login/Register)
+│   │   ├── (main)/             # Public Routes (Home, Product, Cart)
+│   │   ├── admin/              # Admin Dashboard (Orders, Products, Users)
+│   │   ├── kurir/              # Kurir Dashboard (Deliveries)
+│   │   └── api/                # API Routes (Backend Logic)
+│   ├── components/             # Reusable UI Components
+│   ├── lib/                    # Utilities & Configurations (DB, Auth)
+│   └── types/                  # TypeScript Definitions
+├── public/                     # Static Assets (Images, Icons)
+├── drizzle.config.ts           # Drizzle ORM Config
+└── package.json                # Project Dependencies
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📦 Instalasi & Cara Menjalankan
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Ikuti langkah-langkah berikut untuk menjalankan project di lokal komputer Anda:
 
-## Learn More
+1.  **Clone Repository**
+    ```bash
+    git clone https://github.com/mvirgiawancr/indomaret-pos.git
+    cd indomaret-pos
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+2.  **Install Dependencies**
+    ```bash
+    npm install
+    ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3.  **Setup Environment Variables**
+    Buat file `.env` di root folder dan isi konfigurasi berikut (sesuaikan dengan kredensial Anda):
+    ```env
+    DATABASE_URL="postgresql://user:password@host:port/dbname"
+    BETTER_AUTH_SECRET="your_generated_secret_key"
+    NEXT_PUBLIC_APP_URL="http://localhost:3000"
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4.  **Push Database Schema**
+    ```bash
+    npm run db:push
+    ```
 
-## Deploy on Vercel
+5.  **Jalankan Development Server**
+    ```bash
+    npm run dev
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+    Buka [http://localhost:3000](http://localhost:3000) di browser Anda.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 👤 Author
+
+**Moch Virgiawan Caesar Ridollohi**
+
+*   GitHub: [@mvirgiawancr](https://github.com/mvirgiawancr)
